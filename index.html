@@ -1,263 +1,578 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HLU TOOLS — Bộ công cụ thông minh cho mọi người</title>
-  <meta name="description" content="HLU TOOLS — Kết nối • Chia sẻ • Hiệu Quả. Bộ công cụ & phần mềm hỗ trợ người dùng: tra cứu nhanh, dọn dẹp tối ưu, ngân hàng câu hỏi E-Learning và nhiều hơn nữa." />
-  <meta property="og:title" content="HLU TOOLS — Bộ công cụ thông minh cho mọi người" />
-  <meta property="og:description" content="Kết nối • Chia sẻ • Hiệu Quả. Công cụ nhỏ, làm việc lớn — miễn phí, an toàn, nhanh." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-cover.svg" />
-  <meta name="theme-color" content="#0A0E1A" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HLU TOOLS — Phong cách 3: Editorial / Swiss Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FAF8F5;
+      --stone: #EFECE6;
+      --ink: #141413;
+      --muted: #66645E;
+      --cobalt: #0047AB;
+      --pine: #1E6B45;
+      --vermilion: #D9381E;
+      --rule-light: 1px solid #D8D4CC;
+      --rule-dark: 1px solid #141413;
+      --rule-heavy: 2px solid #141413;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* SWISS MASTHEAD HEADER */
+    .editorial-header {
+      border-bottom: var(--rule-heavy);
+    }
+    .header-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr auto;
+      align-items: center;
+      min-height: 72px;
+    }
+    .brand-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+      padding-right: 24px;
+      border-right: var(--rule-light);
+      height: 100%;
+    }
+    .brand-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+    .brand-title span { color: var(--cobalt); }
+    .brand-sub {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--muted);
+    }
+    .nav-cell {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      padding: 0 32px;
+      font-size: 0.9rem;
+    }
+    .nav-cell a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .cta-cell {
+      padding-left: 24px;
+      border-left: var(--rule-light);
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .link-editorial {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+    }
+
+    /* HERO SECTION */
+    .editorial-hero {
+      border-bottom: var(--rule-heavy);
+    }
+    .hero-swiss-grid {
+      display: grid;
+      grid-template-columns: 7.5fr 4.5fr;
+    }
+    .hero-main-col {
+      padding: 64px 48px 64px 0;
+      border-right: var(--rule-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .editorial-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .editorial-kicker .dot { color: var(--pine); }
+    .editorial-headline {
+      font-family: 'Newsreader', serif;
+      font-weight: 500;
+      font-size: 4.1rem;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      margin-bottom: 28px;
+    }
+    .editorial-headline em {
+      font-style: italic;
+      color: var(--cobalt);
+    }
+    .editorial-lead {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 36px;
+    }
+    .editorial-lead strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .hero-btn-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .btn-swiss-primary {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .btn-swiss-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: var(--rule-dark);
+      padding: 12px 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .hero-colophon {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: var(--rule-light);
+      padding-top: 16px;
+    }
+
+    /* HERO RIGHT INDEX COLUMN */
+    .hero-index-col {
+      padding: 64px 0 64px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .index-emblem {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 24px;
+      border-bottom: var(--rule-dark);
+    }
+    .index-list {
+      border-bottom: var(--rule-dark);
+    }
+    .index-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-top: var(--rule-light);
+    }
+    .index-row:first-child { border-top: none; }
+    .index-left {
+      display: flex;
+      gap: 14px;
+    }
+    .index-symbol {
+      font-size: 1.15rem;
+      color: var(--cobalt);
+      width: 24px;
+    }
+    .index-copy strong {
+      display: block;
+      font-family: 'Newsreader', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    .index-copy span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .index-caption {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      padding-top: 16px;
+    }
+
+    /* PRODUCTS SECTION */
+    .editorial-products {
+      padding: 72px 0 96px;
+    }
+    .swiss-section-layout {
+      display: grid;
+      grid-template-columns: 3fr 9fr;
+      gap: 40px;
+    }
+    .sticky-margin {
+      border-top: var(--rule-dark);
+      padding-top: 16px;
+    }
+    .margin-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--cobalt);
+      display: block;
+      margin-bottom: 24px;
+    }
+    .filter-vertical {
+      display: flex;
+      flex-direction: column;
+      border-top: var(--rule-light);
+    }
+    .filter-item {
+      text-align: left;
+      background: none;
+      border: none;
+      border-bottom: var(--rule-light);
+      padding: 10px 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .filter-item.active {
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .content-column {
+      border-top: var(--rule-dark);
+      padding-top: 16px;
+    }
+    .editorial-h2 {
+      font-family: 'Newsreader', serif;
+      font-size: 2.75rem;
+      font-weight: 500;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .editorial-sub {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-bottom: 36px;
+      max-width: 640px;
+    }
+    .swiss-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: var(--rule-dark);
+      border-left: var(--rule-dark);
+    }
+    .matrix-cell {
+      border-right: var(--rule-dark);
+      border-bottom: var(--rule-dark);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background-color 0.25s ease;
+    }
+    .matrix-cell:hover {
+      background-color: var(--stone);
+    }
+    .cell-header {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .cell-figure {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-top: var(--rule-light);
+      border-bottom: var(--rule-light);
+      margin-bottom: 20px;
+    }
+    .minimal-app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border: var(--rule-dark);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--paper);
+    }
+    .minimal-motif {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--cobalt);
+    }
+    .cell-title {
+      font-family: 'Newsreader', serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .cell-desc {
+      font-size: 0.94rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .cell-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: var(--rule-light);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.74rem;
+    }
+    .cell-tags {
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
-  <div class="cursor-glow" aria-hidden="true"></div>
-  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
 
-  <!-- ============ NAVBAR ============ -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a href="#home" class="logo" aria-label="HLU TOOLS - Trang chủ">
-        <img src="assets/logo.svg" alt="Logo HLU TOOLS" width="40" height="40" />
-        <span class="logo-text">HLU <b>TOOLS</b></span>
+  <!-- HEADER -->
+  <header class="editorial-header">
+    <div class="container header-grid">
+      <a href="#" class="brand-cell">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" stroke="#141413" stroke-width="1.5"/>
+          <text x="16" y="19" text-anchor="middle" fill="#0047AB" font-family="IBM Plex Mono" font-size="8" font-weight="500">HLU</text>
+        </svg>
+        <div>
+          <div class="brand-title">HLU <span>TOOLS</span></div>
+          <small class="brand-sub">HỆ SINH THÁI CÔNG CỤ THÔNG MINH</small>
+        </div>
       </a>
-      <nav class="nav-menu" id="navMenu" aria-label="Menu chính">
-        <a href="#home">Trang chủ</a>
-        <a href="#about">Về dự án</a>
-        <a href="#tools">Công cụ</a>
-        <a href="#roadmap">Định hướng</a>
-        <a href="#contact">Liên hệ</a>
-      </nav>
-      <div class="nav-actions">
-        <a href="#tools" class="btn btn-primary btn-sm">Khám phá ngay</a>
-        <button class="menu-btn" id="menuBtn" aria-label="Mở menu" aria-expanded="false" aria-controls="navMenu">☰</button>
+      <ul class="nav-cell">
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Về dự án</a></li>
+        <li><a href="#">Công cụ</a></li>
+        <li><a href="#">Định hướng</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+      <div class="cta-cell">
+        <a href="#" class="link-editorial">Khám phá ngay ↗</a>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="home">
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="container hero-inner">
-        <p class="hero-badge reveal">✦ Dự án công cụ cộng đồng — làm bởi người dùng, vì người dùng</p>
-        <h1 class="hero-title reveal">HLU TOOLS<br /><span class="gradient-text shimmer">Bộ công cụ thông minh<br />cho mọi người</span></h1>
-        <p class="hero-sub reveal">Tra cứu nhanh phần mềm, tài liệu, firmware và tin tức. Dọn dẹp máy nhanh — gọn — an toàn. Ôn tập E-Learning mọi lúc, mọi nơi. Một bộ công cụ, nhiều việc nhẹ đi.</p>
-        <div class="hero-cta reveal">
-          <a href="#tools" class="btn btn-primary">Xem công cụ ↓</a>
-          <a href="#about" class="btn btn-outline">Tìm hiểu thêm</a>
+  <!-- HERO SECTION -->
+  <section class="editorial-hero">
+    <div class="container hero-swiss-grid">
+      <div class="hero-main-col">
+        <div>
+          <div class="editorial-kicker">
+            <span class="dot">●</span> MỘT HỆ SINH THÁI · BỐN SẢN PHẨM · MỘT DẤU ẤN HLU
+          </div>
+          <h1 class="editorial-headline">
+            HLU —<br>
+            Bốn sản phẩm, <em>một</em><br>
+            <em>dấu ấn</em><br>
+            cho mọi người.
+          </h1>
+          <p class="editorial-lead">
+            <strong>HLU TOOLS</strong>, <strong>HLU QUESTIONS BANK</strong>, <strong>HLU 5S</strong> và <strong>HLU CLM</strong> — bốn sản phẩm cùng mang 3 chữ cái đầu <strong>HLU</strong>, cùng một mục tiêu: giúp công việc hằng ngày trở nên <strong>đơn giản hơn, nhanh hơn và hiệu quả hơn</strong>.
+          </p>
+          <div class="hero-btn-row">
+            <a href="#products" class="btn-swiss-primary">Xem công cụ →</a>
+            <a href="#about" class="btn-swiss-secondary">▷ Tìm hiểu thêm</a>
+          </div>
         </div>
-        <p class="hero-slogan reveal">“HLU TOOLS — <b>Kết nối • Chia sẻ • Hiệu Quả</b>”</p>
+        <div class="hero-colophon">
+          <span>— Thiết kế vì người dùng. Phát triển bằng sự tận tâm.</span>
+          <span>● CUỘN XUỐNG ĐỂ KHÁM PHÁ</span>
+        </div>
       </div>
-    </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="container">
-        <p class="eyebrow reveal">Về dự án</p>
-        <h2 class="section-title reveal">Không phải một app.<br />Mà là <span class="neon-text">một hệ sinh thái công cụ.</span></h2>
-        <p class="section-lead reveal">HLU TOOLS bắt đầu từ nhu cầu thật trong công việc hằng ngày: tìm tài liệu nhanh hơn, dọn máy nhẹ hơn, ôn bài tiện hơn — thay vì mỗi việc một nguồn rời rạc, khó nhớ, khó tìm lại.</p>
-
-        <div class="card-grid three">
-          <article class="glass-card reveal">
-            <div class="card-icon">👁️</div>
-            <h3>Tầm nhìn</h3>
-            <p>Trở thành bộ công cụ “mở ra là có” cho người dùng phổ thông và kỹ thuật viên: cần gì, tìm thấy ngay, dùng được ngay.</p>
-          </article>
-          <article class="glass-card reveal">
-            <div class="card-icon">🎯</div>
-            <h3>Sứ mệnh</h3>
-            <p>Tiết kiệm thời gian tìm kiếm, giảm phụ thuộc vào nguồn rời rạc, và đưa công cụ tốt đến tay cộng đồng — miễn phí, dễ dùng.</p>
-          </article>
-          <article class="glass-card reveal">
-            <div class="card-icon">💎</div>
-            <h3>Giá trị cốt lõi</h3>
-            <p>Thực dụng trước, đẹp sau. Không cài cắm, không xóa bừa, không hứa quá. Cái gì chưa chắc chắn thì ghi rõ là chưa chắc chắn.</p>
-          </article>
+      <!-- RIGHT EDITORIAL INDEX -->
+      <div class="hero-index-col">
+        <div class="index-emblem">
+          <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+            <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" stroke="#0047AB" stroke-width="1.5"/>
+            <text x="16" y="19" text-anchor="middle" fill="#141413" font-family="IBM Plex Mono" font-size="8" font-weight="500">HLU</text>
+          </svg>
+          <div>
+            <strong style="display:block;font-size:1rem;">HLU TOOLS</strong>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);">CÔNG CỤ THIẾT THỰC</span>
+          </div>
         </div>
 
-        <div class="stats reveal">
-          <div class="stat"><strong><span class="counter" data-target="8">0</span>+</strong><span>Công cụ &amp; phần mềm</span></div>
-          <div class="stat"><strong><span class="counter" data-target="25">0</span>+</strong><span>Người dùng nội bộ dùng hằng ngày *</span></div>
-          <div class="stat"><strong><span class="counter" data-target="4">0</span></strong><span>Nhóm tính năng chính</span></div>
-        </div>
-        <p class="footnote">* Số liệu nội bộ tại thời điểm làm trang — anh sửa lại số thật trong <code>index.html</code> (mục .stats) khi cần. Xem README.</p>
-      </div>
-    </section>
-
-    <!-- ============ TOOLS ============ -->
-    <section class="section" id="tools">
-      <div class="container">
-        <p class="eyebrow reveal">Công cụ &amp; phần mềm</p>
-        <h2 class="section-title reveal">Chọn đúng việc, <span class="neon-text">mở đúng tool.</span></h2>
-
-        <div class="filters reveal" role="group" aria-label="Lọc công cụ theo danh mục">
-          <button class="filter-btn active" data-filter="all">Tất cả</button>
-          <button class="filter-btn" data-filter="tien-ich">Tiện ích</button>
-          <button class="filter-btn" data-filter="toi-uu">Tối ưu</button>
-          <button class="filter-btn" data-filter="hoc-tap">Học tập</button>
-          <button class="filter-btn" data-filter="khac">Khác</button>
-        </div>
-
-        <div class="card-grid tools-grid" id="toolsGrid">
-          <article class="glass-card tool-card reveal" data-category="tien-ich">
-            <div class="card-icon">🧰</div>
-            <span class="tag tag-free">Miễn phí</span>
-            <h3>HLU TOOLS <small>(Android)</small></h3>
-            <p>App tra cứu nhanh phần mềm, tài liệu, firmware và tin tức — tập trung một chỗ, khỏi lục nhiều nguồn.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <article class="glass-card tool-card reveal" data-category="toi-uu">
-            <div class="card-icon">🧹</div>
-            <span class="tag tag-free">Miễn phí</span>
-            <h3>HLU Clean Pro <small>(Windows)</small></h3>
-            <p>Dọn rác, tối ưu Windows. Xóa vào Thùng rác để khôi phục được, không đụng file hệ thống, có lịch dọn ngầm.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <article class="glass-card tool-card reveal" data-category="toi-uu">
-            <div class="card-icon">📱</div>
-            <span class="tag tag-beta">Beta</span>
-            <h3>HLU Clean Pro <small>(Android)</small></h3>
-            <p>Quét &amp; dọn tệp rác trên Android, thùng rác khôi phục được trong app, quét bộ nhớ đệm an toàn.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <article class="glass-card tool-card reveal" data-category="hoc-tap">
-            <div class="card-icon">🔍</div>
-            <span class="tag tag-free">Miễn phí</span>
-            <h3>Web tra cứu E-Learning</h3>
-            <p>Tra cứu nhanh tài liệu, kiến thức E-Learning cho kỹ thuật viên — gõ là ra, khỏi lật từng file.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <article class="glass-card tool-card reveal" data-category="hoc-tap">
-            <div class="card-icon">❓</div>
-            <span class="tag tag-beta">Đang nhập liệu</span>
-            <h3>Ngân hàng câu hỏi</h3>
-            <p>Hệ câu hỏi E-Learning chuẩn hóa (trắc nghiệm / đúng–sai) phục vụ ôn tập và tra cứu — dữ liệu duyệt trước khi công bố.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <article class="glass-card tool-card reveal" data-category="tien-ich">
-            <div class="card-icon">🧾</div>
-            <span class="tag tag-beta">Beta</span>
-            <h3>vnpt-ktv / Angel Desk</h3>
-            <p>Trợ lý vận hành cho kỹ thuật viên: theo dõi phiếu việc, phí, khách hàng — chạy local, không đồng bộ server.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <article class="glass-card tool-card reveal" data-category="tien-ich">
-            <div class="card-icon">📺</div>
-            <span class="tag tag-free">Miễn phí</span>
-            <h3>SmartBox Launcher</h3>
-            <p>Launcher nhẹ cho SmartBox / TV: giao diện gọn, hình nền chuẩn, mở app nhanh, khôi phục được.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-
-          <!-- TODO: GHTT — anh điền mô tả thật vào đây -->
-          <article class="glass-card tool-card reveal" data-category="khac">
-            <div class="card-icon">✨</div>
-            <span class="tag tag-soon">Sắp ra mắt</span>
-            <h3>GHTT</h3>
-            <p class="todo-note">TODO — Anh điền mô tả thật của GHTT vào đây (làm gì, cho ai, trạng thái nào). Card này đang để placeholder theo yêu cầu.</p>
-            <a class="card-link" href="#contact">Chi tiết →</a>
-          </article>
-        </div>
-        <p class="footnote">Muốn thêm tool mới: copy 1 block <code>&lt;article class="tool-card"&gt;</code> trong <code>index.html</code>, đổi icon / tên / mô tả / <code>data-category</code>. Chi tiết trong README.</p>
-      </div>
-    </section>
-
-    <!-- ============ ROADMAP ============ -->
-    <section class="section" id="roadmap">
-      <div class="container">
-        <p class="eyebrow reveal">Mục tiêu &amp; định hướng</p>
-        <h2 class="section-title reveal">Đi từng bước chắc, <span class="neon-text">không làm ồ ạt.</span></h2>
-        <div class="timeline">
-          <div class="timeline-item done reveal">
-            <span class="dot"></span>
-            <div class="timeline-body">
-              <span class="tag tag-done">Đã hoàn thành</span>
-              <h3>Nền tảng tra cứu</h3>
-              <p>HLU TOOLS Android + Web tra cứu E-Learning: phần mềm, tài liệu, firmware, tin tức tập trung một chỗ.</p>
+        <div class="index-list">
+          <div class="index-row">
+            <div class="index-left">
+              <span class="index-symbol">✦</span>
+              <div class="index-copy">
+                <strong>Tiện ích thông minh</strong>
+                <span>Mọi công cụ trong một ứng dụng</span>
+              </div>
             </div>
+            <span>☑</span>
           </div>
-          <div class="timeline-item doing reveal">
-            <span class="dot"></span>
-            <div class="timeline-body">
-              <span class="tag tag-beta">Đang phát triển</span>
-              <h3>Tối ưu &amp; học tập</h3>
-              <p>HLU Clean Pro (Windows + Android) và ngân hàng câu hỏi E-Learning — hoàn thiện dần theo phản hồi người dùng thật.</p>
+
+          <div class="index-row">
+            <div class="index-left">
+              <span class="index-symbol">⚡</span>
+              <div class="index-copy">
+                <strong>Nhanh và đơn giản</strong>
+                <span>Mở lên là dùng ngay</span>
+              </div>
             </div>
+            <span>☑</span>
           </div>
-          <div class="timeline-item todo reveal">
-            <span class="dot"></span>
-            <div class="timeline-body">
-              <span class="tag tag-soon">Sắp tới</span>
-              <h3>Mở rộng hệ sinh thái</h3>
-              <p class="todo-note">TODO — Anh chốt danh sách giai đoạn này (VD: GHTT, iOS, đồng bộ…) rồi điền mốc thời gian cụ thể vào đây.</p>
+
+          <div class="index-row">
+            <div class="index-left">
+              <span class="index-symbol">⚛</span>
+              <div class="index-copy">
+                <strong>Một hệ sinh thái</strong>
+                <span>Bốn sản phẩm, chung dấu ấn HLU</span>
+              </div>
             </div>
+            <span>☑</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ============ VALUES ============ -->
-    <section class="section" id="values">
-      <div class="container">
-        <p class="eyebrow reveal">Giá trị &amp; cam kết</p>
-        <h2 class="section-title reveal">Dùng yên tâm, <span class="neon-text">không lo “dính chưởng”.</span></h2>
-        <div class="card-grid four">
-          <article class="glass-card value-card reveal"><div class="card-icon">🛡️</div><h3>An toàn</h3><p>Không xóa bừa, không đụng file hệ thống. Xóa là có đường khôi phục.</p></article>
-          <article class="glass-card value-card reveal"><div class="card-icon">🎁</div><h3>Miễn phí</h3><p>Công cụ cốt lõi miễn phí cho cộng đồng, không cài cắm quảng cáo khó chịu.</p></article>
-          <article class="glass-card value-card reveal"><div class="card-icon">⚡</div><h3>Nhanh</h3><p>Nhẹ, mở nhanh, tải nhanh. Trang này cũng là static HTML — không framework nặng.</p></article>
-          <article class="glass-card value-card reveal"><div class="card-icon">🤝</div><h3>Cộng đồng</h3><p>Làm từ phản hồi thật của người dùng. Góp ý là được lắng nghe, lỗi là được sửa.</p></article>
+        <div class="index-caption">
+          — KẾT NỐI Ý TƯỞNG · CÔNG CỤ · CON NGƯỜI
         </div>
       </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section" id="contact">
-      <div class="container contact-grid">
-        <div class="reveal">
-          <p class="eyebrow">Liên hệ</p>
-          <h2 class="section-title">Góp ý, báo lỗi,<br /><span class="neon-text">hay chỉ muốn chào nhau.</span></h2>
-          <p class="section-lead">Form dưới đây chỉ là giao diện demo (chưa có backend). Gửi thật thì dùng các kênh bên dưới — anh thay link thật vào <code>href="#"</code> trong file này.</p>
-          <div class="socials">
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="GitHub">GitHub</a>
-            <a href="#" aria-label="Zalo">Zalo</a>
-            <a href="mailto:hello@hlutools.example" aria-label="Email">Email</a>
-          </div>
-          <a href="#" class="btn btn-primary btn-lg">Tham gia cộng đồng →</a>
-        </div>
-        <form class="glass-card contact-form reveal" id="contactForm" aria-label="Form liên hệ">
-          <label>Tên của bạn<input type="text" name="name" placeholder="VD: Nguyễn Văn A" required /></label>
-          <label>Email<input type="email" name="email" placeholder="ban@email.com" required /></label>
-          <label>Nội dung<textarea name="message" rows="4" placeholder="Anh/chị muốn góp ý gì cho HLU TOOLS?" required></textarea></label>
-          <button type="submit" class="btn btn-primary">Gửi liên hệ</button>
-          <p class="form-note" id="formNote" role="status"></p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© <span id="year">2026</span> HLU TOOLS — Kết nối • Chia sẻ • Hiệu Quả</p>
-      <nav aria-label="Link nhanh">
-        <a href="#about">Về dự án</a><a href="#tools">Công cụ</a><a href="#roadmap">Định hướng</a><a href="#contact">Liên hệ</a>
-      </nav>
     </div>
-  </footer>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- PRODUCTS SECTION -->
+  <section id="products" class="editorial-products">
+    <div class="container swiss-section-layout">
+      <aside class="sticky-margin">
+        <span class="margin-number">02 / SẢN PHẨM</span>
+        <div class="filter-vertical">
+          <button class="filter-item active">Tất cả 04</button>
+          <button class="filter-item">Tiện ích</button>
+          <button class="filter-item">Báo cáo</button>
+          <button class="filter-item">Bảo mật</button>
+          <button class="filter-item">Khác</button>
+        </div>
+      </aside>
+
+      <div class="content-column">
+        <h2 class="editorial-h2">Những công cụ tạo nên hệ sinh thái HLU.</h2>
+        <p class="editorial-sub">Từ tiện ích cá nhân đến các nền tảng hỗ trợ chuyên biệt — mỗi dự án đều bắt đầu từ một nhu cầu cụ thể.</p>
+
+        <div class="swiss-matrix">
+          <!-- CELL 1 -->
+          <article class="matrix-cell">
+            <div>
+              <div class="cell-header">
+                <span>HỆ SINH THÁI · DỰ ÁN HLU</span>
+                <span><span style="color:var(--pine)">●</span> Đang sử dụng</span>
+              </div>
+              <div class="cell-figure">
+                <span class="minimal-app-badge">🛠️🔧 HLU TOOLS</span>
+                <span class="minimal-motif">✦ + ( HLU ) + ✦</span>
+              </div>
+              <h3 class="cell-title">HLU TOOLS</h3>
+              <p class="cell-desc">Ứng dụng gốc của hệ sinh thái HLU, dành cho kỹ thuật viên VNPT: tra cứu Tài liệu, Phần mềm, Firmware, Tin tức và E-Learning, cùng các công cụ hỗ trợ xử lý sự cố thực địa.</p>
+            </div>
+            <div class="cell-footer">
+              <span class="cell-tags">KTV VNPT · Tra cứu · Android</span>
+              <a href="#" class="link-editorial">Khám phá sản phẩm ↗</a>
+            </div>
+          </article>
+
+          <!-- CELL 2 -->
+          <article class="matrix-cell">
+            <div>
+              <div class="cell-header">
+                <span>HỌC TẬP · DỰ ÁN HLU</span>
+                <span><span style="color:var(--pine)">●</span> Đang sử dụng</span>
+              </div>
+              <div class="cell-figure">
+                <span class="minimal-app-badge">🎓❓📖 Q-BANK</span>
+                <span class="minimal-motif">A / B ✓ / C / D</span>
+              </div>
+              <h3 class="cell-title">HLU QUESTIONS BANK</h3>
+              <p class="cell-desc">Ngân hàng câu hỏi E-Learning cho kỹ thuật viên: tìm nhanh theo từ khóa, phân loại theo chủ đề, tra cứu được cả khi ngoại tuyến sau khi đã tải trang.</p>
+            </div>
+            <div class="cell-footer">
+              <span class="cell-tags">Học tập · Tra cứu · E-Learning</span>
+              <a href="#" class="link-editorial">Khám phá sản phẩm ↗</a>
+            </div>
+          </article>
+
+          <!-- CELL 3 -->
+          <article class="matrix-cell">
+            <div>
+              <div class="cell-header">
+                <span>NƠI LÀM VIỆC · DỰ ÁN HLU</span>
+                <span><span style="color:var(--pine)">●</span> Đang sử dụng</span>
+              </div>
+              <div class="cell-figure">
+                <span class="minimal-app-badge">🌐 VNPT 5S</span>
+                <span class="minimal-motif">✦ + ( 5S ) + ✦</span>
+              </div>
+              <h3 class="cell-title">HLU 5S</h3>
+              <p class="cell-desc">Ứng dụng chấm 5S máy lắp đặt mới, máy báo hỏng của VNPT Ninh Bình trên di động.</p>
+            </div>
+            <div class="cell-footer">
+              <span class="cell-tags">5S · VNPT · Android</span>
+              <a href="#" class="link-editorial">Khám phá sản phẩm ↗</a>
+            </div>
+          </article>
+
+          <!-- CELL 4 -->
+          <article class="matrix-cell">
+            <div>
+              <div class="cell-header">
+                <span>BÁO CÁO · DỰ ÁN HLU</span>
+                <span><span style="color:var(--vermilion)">●</span> Mới phát hành</span>
+              </div>
+              <div class="cell-figure">
+                <span class="minimal-app-badge">🛡️👤 CLM</span>
+                <span class="minimal-motif">✦ + ( CLM ) + ✦</span>
+              </div>
+              <h3 class="cell-title">HLU CLM</h3>
+              <p class="cell-desc">Ứng dụng Báo cáo Nội bộ VNPT Ninh Bình trên điện thoại: Theo dõi thuê bao có nguy cơ rời mạng cao, gia hạn trả trước.</p>
+            </div>
+            <div class="cell-footer">
+              <span class="cell-tags">Báo cáo nội bộ · VNPT · Android</span>
+              <a href="#" class="link-editorial">Khám phá sản phẩm ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
